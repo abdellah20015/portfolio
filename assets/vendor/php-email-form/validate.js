@@ -35,12 +35,14 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(response => {
         if (response.ok) {
           return response.json(); // Changed from .text() to .json()
+          console.log(response.json())
         } else {
           throw new Error(`${response.status} ${response.statusText} ${response.url}`);
         }
       })
       .then(data => {
         thisForm.querySelector('.loading').classList.remove('d-block');
+        console.log(data)
         // Check if the response contains "ok": true instead of expecting just "OK"
         if (data && data.ok === true) {
           Swal.fire({
